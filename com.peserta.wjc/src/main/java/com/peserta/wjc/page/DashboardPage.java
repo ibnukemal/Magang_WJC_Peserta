@@ -22,12 +22,10 @@ public class DashboardPage {
 	@FindBy(id = "button-addon2")
 	private WebElement subscribe;
 	
-	public void sendEmail(String email) {
+	public void sendEmailandSubscribe(String email) {
 		txtEmail.sendKeys(email);
-	}
-	
-	public void clickSubscribe() {
 		subscribe.click();
 	}
+	
 	
 }

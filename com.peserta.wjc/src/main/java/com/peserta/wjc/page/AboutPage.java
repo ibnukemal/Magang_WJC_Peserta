@@ -1,5 +1,6 @@
 package com.peserta.wjc.page;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -14,27 +15,19 @@ import com.peserta.wjc.driver.DriverSingleton;
 public class AboutPage {
 
 	private WebDriver driver;
-//	WebDriverWait wait = new WebDriverWait(driver, 5);
 
 	public AboutPage() {
 		driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//*[@id=\"navbarsMenu\"]/ul/li[3]/a")
-	private WebElement about;
+	@FindBy(css = "#navbarsMenu > ul > li")
+	private List<WebElement> about;
 	
 	public void clickAbout() {
-//		wait.until(ExpectedConditions.elementToBeClickable(about));
 		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
-		about.click();
+		about.get(2).click();
 	}
 	
-	@FindBy(xpath = "/html/body/div[3]/div/div/div[2]/a")
-	private WebElement btnJoinNow;
-	
-	public void clickJoinNow() {
-		btnJoinNow.click();
-	}
-	
+
 }
