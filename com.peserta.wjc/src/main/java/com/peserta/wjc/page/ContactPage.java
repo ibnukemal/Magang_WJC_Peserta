@@ -24,7 +24,7 @@ public class ContactPage {
 	
 	public void pageContact() {
 		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
-		menuContact.get(5).click();
+		menuContact.get(4).click();
 	}
 	
 	@FindBy(css ="#frmcontact > div:nth-child(1) > input")

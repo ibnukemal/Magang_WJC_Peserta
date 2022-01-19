@@ -9,8 +9,13 @@ import org.springframework.test.context.ContextConfiguration;
 import com.peserta.wjc.driver.DriverSingleton;
 import com.peserta.wjc.page.AboutPage;
 import com.peserta.wjc.page.BlogPage;
+import com.peserta.wjc.page.BootcampPage;
 import com.peserta.wjc.page.ContactPage;
+import com.peserta.wjc.page.CoursePage;
 import com.peserta.wjc.page.DashboardPage;
+import com.peserta.wjc.page.LearningPage;
+import com.peserta.wjc.page.RegisterPage;
+import com.peserta.wjc.page.SyllabusPage;
 import com.peserta.wjc.config.AutomationFrameworkConfig;
 import com.peserta.wjc.utils.ConfigProperties;
 import com.peserta.wjc.utils.Constants;
@@ -34,9 +39,14 @@ public class StepDefinition {
 
 	private WebDriver driver;
 	private DashboardPage dashboard;
+	private LearningPage learning;
+	private BootcampPage bootcamp;
+	private SyllabusPage syllabus;
+	private CoursePage course;
 	private AboutPage about;
 	private BlogPage blog;
 	private ContactPage contact;
+	private RegisterPage regist;
 	ExtentTest extentTest;
 	static ExtentReports report = new ExtentReports("src/main/resources/TestReport.html");
 	
@@ -48,8 +58,13 @@ public class StepDefinition {
 		DriverSingleton.getInstance(configProperties.getBrowser());
 		dashboard = new DashboardPage();
 		about = new AboutPage();
+		learning = new LearningPage();
+	    bootcamp = new BootcampPage();
+	    syllabus = new SyllabusPage();
+	    course = new CoursePage();
 		blog = new BlogPage();
 		contact = new ContactPage();
+		regist = new RegisterPage();
 	    TestCases[] tests = TestCases.values();
 		extentTest = report.startTest(tests[Utils.testcount].getTestName());
 		Utils.testcount++;
@@ -69,6 +84,35 @@ public class StepDefinition {
 		extentTest.log(LogStatus.PASS, "User masukkan email dan tekan subscribe");
 	}
 	
+	//Menu Learning
+	@Then("^User menampilkan list menu Learning")
+	public void User_menampilkan_list_menu_Learning() {
+		learning.learningDropDown();
+		extentTest.log(LogStatus.PASS, "User menampilkan list menu Learning");
+	}
+	
+	//Submenu Bootcamp
+	@Then("^User pindah ke halaman Bootcamp")
+	public void User_pindah_ke_halaman_Bootcamp() {
+		bootcamp.pageBootcamp();
+		extentTest.log(LogStatus.PASS, "User pindah ke halaman Bootcamp");
+	}
+	
+	//Submenu Syllabus
+	@Then("^User pindah ke halaman Syllabus")
+	public void User_pindah_ke_halaman_Syllabus() {
+		syllabus.pageSyllabus();
+		extentTest.log(LogStatus.PASS, "User pindah ke halaman Syllabus");
+	}
+	
+	//Submenu Course
+	@Then("^User pindah ke halaman Course")
+	public void User_pindah_ke_halaman_Course() {
+		course.pageCourse();
+		extentTest.log(LogStatus.PASS, "User pindah ke halaman Course");
+	}
+	
+	
 	//Menu About
 	@Then("^User pindah ke halaman About")
 	public void User_pindah_ke_halaman_About() {
@@ -87,8 +131,6 @@ public class StepDefinition {
 	
 	@And("^User pindah nomor halaman")
 	public void User_pindah_nomor_halaman() {
-		//driver = DriverSingleton.getDriver();
-		//driver.get("https://dev.ptdika.com/juaracodingv1/blog?page_blog=2");
 		blog.clickPageNumb();
 		extentTest.log(LogStatus.PASS, "User pindah nomor halaman");
 	}
@@ -109,7 +151,7 @@ public class StepDefinition {
 	
 	@And("^User input data Contact")
 	public void User_input_data_Contact() {
-		contact.formContact(configProperties.getFullName(), configProperties.getEmail2(), 
+		contact.formContact(configProperties.getFullname(), configProperties.getEmail2(), 
 				configProperties.getPhone(), configProperties.getSubject(), configProperties.getMessage());
 		extentTest.log(LogStatus.PASS, "User input data Contact");
 	}
@@ -120,7 +162,28 @@ public class StepDefinition {
 		extentTest.log(LogStatus.PASS, "User click Send Message");
 	}
 	
+	//Register Page
+	@When("^User masuk halaman registrasi")
+	public void User_masuk_halaman_registrasi() {
+		regist.registerPage();
+		extentTest.log(LogStatus.PASS, "User masuk halaman registrasi");
+	}
 	
+	@And("^User input formulir")
+	public void User_input_formulir() {
+		regist.formulirPendaftaran(configProperties.getNamadepan(), configProperties.getNamabelakang(), 
+				configProperties.getEmailsiswa(), configProperties.getTanggallahir(), 
+				configProperties.getAlamat(), configProperties.getKota(), configProperties.getKodepos(), 
+				configProperties.getHandphone(), configProperties.getHandphoneKerabat(), configProperties.getMotivasi());
+		extentTest.log(LogStatus.PASS, "User input formulir");
+	}
+	
+	@Then("^User click Kirim")
+	public void User_click_Kirim() {
+		regist.clickSend();
+		extentTest.log(LogStatus.PASS, "User click Kirim");
+	}
+		
 	@After
 	public void closeObject() {
 		report.endTest(extentTest);

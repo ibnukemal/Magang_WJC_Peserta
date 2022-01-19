@@ -1,4 +1,4 @@
-Feature: Contact Page
+Feature: 5.Contact Page
 
   Scenario: Testing Contact Page
 		When User click Contact

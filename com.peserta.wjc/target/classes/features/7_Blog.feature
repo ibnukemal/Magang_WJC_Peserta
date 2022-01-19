@@ -1,4 +1,4 @@
-Feature: Blog Page
+Feature: 4.Blog Page
 
   Scenario: Testing Blog Page
 		When User pindah ke halaman Blog

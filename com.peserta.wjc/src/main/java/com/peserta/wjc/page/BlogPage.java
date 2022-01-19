@@ -30,7 +30,7 @@ private WebDriver driver;
 	
 	public void menuBlog() {
 		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
-		blog.get(4).click();
+		blog.get(3).click();
 	}
 	
 	public void clickPageNumb() {
