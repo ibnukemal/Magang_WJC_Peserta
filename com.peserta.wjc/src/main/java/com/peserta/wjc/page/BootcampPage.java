@@ -19,11 +19,20 @@ public class BootcampPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(css = "#navbarsMenu > ul > li.nav-item.dropdown.show > div")
-	private List<WebElement> menuBootcamp;
+	//Dropdown Menu Learning
+		@FindBy(css = "#navbarsMenu > ul > li.nav-item.dropdown")
+		private WebElement menuLearning;
+		
+		public void learningDropDown() {
+//			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			menuLearning.click();
+		}
+	
+	@FindBy(css = "#navbarsMenu > ul > li.nav-item.dropdown.show > div > a:nth-child(1)")
+	private WebElement menuBootcamp;
 
 	public void pageBootcamp() {
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		menuBootcamp.get(0).click();
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		menuBootcamp.click();
 	}
 }

@@ -23,90 +23,93 @@ public class RegisterPage {
 	private WebElement btnRegister;
 	
 	public void registerPage() {
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		btnRegister.click();
 	}
 	
+	//Form Registrasi
 	@FindBy(css = "#id_program > option:nth-child(11)")
-	private WebElement listProgram;
+	private WebElement lstProgram;
 	
 	@FindBy(css = "#id_batch > option:nth-child(2)")
-	private WebElement listBatch;
+	private WebElement lstBatch;
 	
 	@FindBy(css = "#frmregister > div:nth-child(6) > div.switch-field > div > div.col-md-5 > label")
-	private WebElement btnPayMethod;
+	private WebElement payMethod;
 	
 	@FindBy(css = "#frmregister > div:nth-child(8) > div > div:nth-child(1) > input")
-	private WebElement formNamaDepan;
+	private WebElement formFirstName;
 	
 	@FindBy(css = "#frmregister > div:nth-child(8) > div > div:nth-child(2) > input")
-	private WebElement formNamaBelakang;
+	private WebElement formLastName;
 	
 	@FindBy(css = "#frmregister > div:nth-child(9) > input")
-	private WebElement formEmailSiswa;
+	private WebElement formEmail;
 	
 	@FindBy(css = "#frmregister > div:nth-child(10) > div > div:nth-child(1) > select > option:nth-child(2)")
-	private WebElement listGender;
+	private WebElement gender;
 	
 	@FindBy(css = "#frmregister > div:nth-child(10) > div > div:nth-child(2) > input")
-	private WebElement tglLahir;
+	private WebElement formDOB;
 	
 	@FindBy(css = "#frmregister > div:nth-child(11) > select > option:nth-child(4)")
-	private WebElement listKesibukan;
+	private WebElement bustle;
 	
 	@FindBy(css = "#frmregister > div:nth-child(12) > select > option:nth-child(3)")
-	private WebElement listPendidikanTerakhir;
+	private WebElement education;
 	
-	@FindBy(css = "#frmregister > div:nth-child(13) > select > option:nth-child(2)")
-	private WebElement listProgramStudi;
+	@FindBy(css = "#frmregister > div:nth-child(13) > select > option:nth-child(7)")
+	private WebElement majoring;
 	
 	@FindBy(css = "#frmregister > div:nth-child(14) > textarea")
-	private WebElement txtAlamat;
+	private WebElement txtAddress;
 	
 	@FindBy(css = "#frmregister > div:nth-child(15) > div > div:nth-child(1) > input")
-	private WebElement txtKota;
+	private WebElement txtCity;
 	
 	@FindBy(css = "#frmregister > div:nth-child(15) > div > div:nth-child(2) > input")
-	private WebElement txtKodePos;
+	private WebElement txtPostCode;
 	
-	@FindBy(css = "##frmregister > div:nth-child(16) > div > div:nth-child(1) > input")
-	private WebElement txtNoHp;
+	@FindBy(css = "#frmregister > div:nth-child(16) > div > div:nth-child(1) > input")
+	private WebElement txtMobilePhone;
 	
 	@FindBy(css = "#frmregister > div:nth-child(16) > div > div:nth-child(2) > input")
-	private WebElement txtNoHpKerabat;
+	private WebElement txtRelativesPhone;
 	
-	@FindBy(css = "#frmregister > div:nth-child(17) > select > option:nth-child(7)")
-	private WebElement lstProgramKnowledge;
+	@FindBy(css = "#frmregister > div:nth-child(17) > select > option:nth-child(6)")
+	private WebElement sourceProgram;
 	
 	@FindBy(css = "#frmregister > div:nth-child(18) > input")
-	private WebElement txtMotivasi;
+	private WebElement txtMotivation;
 	
 	@FindBy(css = "#flexCheckChecked")
 	private WebElement checkSdanK;
 	
-	public void formulirPendaftaran(String namadepan, String namabelakang, String emailsiswa, String tanggallahir,
-			String alamat, String kota, String kodepos, String handphone, String handphoneKerabat, String motivasi) {
-		listProgram.click();
-		listBatch.click();
-		btnPayMethod.click();
-		formNamaDepan.sendKeys(namadepan);
-		formNamaBelakang.sendKeys(namabelakang);
-		formEmailSiswa.sendKeys(emailsiswa);
-		listGender.click();
-		tglLahir.sendKeys(tanggallahir);
-		listKesibukan.click();
-		listPendidikanTerakhir.click();
-		listProgramStudi.click();
-		txtAlamat.sendKeys(alamat);
-		txtKota.sendKeys(kota);
-		txtKodePos.sendKeys(kodepos);
-		txtNoHp.sendKeys(handphone);
-		txtNoHpKerabat.sendKeys(handphoneKerabat);
-		lstProgramKnowledge.click();
-		txtMotivasi.sendKeys(motivasi);
+	public void formPendaftaran(String firstName, String lastName, String emailStudents, String dob, 
+			String address, String city, String postCode, String mobilePhone, String relativesPhone,
+			String motivation) {
+		lstProgram.click();
+		lstBatch.click();
+		payMethod.click();
+		formFirstName.sendKeys(firstName);
+		formLastName.sendKeys(lastName);
+		formEmail.sendKeys(emailStudents);
+		gender.click();
+		formDOB.sendKeys(dob);	
+		bustle.click();
+		education.click();
+		majoring.click();
+		txtAddress.sendKeys(address);
+		txtCity.sendKeys(city);
+		txtPostCode.sendKeys(postCode);
+		txtMobilePhone.sendKeys(mobilePhone);
+		txtRelativesPhone.sendKeys(relativesPhone);
+		sourceProgram.click();
+		txtMotivation.sendKeys(motivation);
 		checkSdanK.click();
 	}
 	
+	//Btn Send
 	@FindBy(css = "#frmregister > button")
 	private WebElement btnKirim;
 	

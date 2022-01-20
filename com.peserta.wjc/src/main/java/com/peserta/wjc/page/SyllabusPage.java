@@ -12,18 +12,45 @@ import com.peserta.wjc.driver.DriverSingleton;
 
 public class SyllabusPage {
 
-private WebDriver driver;
+	private WebDriver driver;
 	
 	public SyllabusPage() {
 		driver = DriverSingleton.getDriver();
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(css = "#navbarsMenu > ul > li.nav-item.dropdown.show > div")
-	private List<WebElement> menuSyllabus;
+	//Dropdown Menu Learning
+		@FindBy(css = "#navbarsMenu > ul > li.nav-item.dropdown > a")
+		private WebElement menuLearning;
+		
+		public void learningDropDown() {
+//			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			menuLearning.click();
+		}
+	
+	@FindBy(css = "#navbarsMenu > ul > li.nav-item.dropdown.show > div > a:nth-child(2)")
+	private WebElement menuSyllabus;
 	
 	public void pageSyllabus() {
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		menuSyllabus.get(1).click();
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		menuSyllabus.click();
 	}
+	
+	@FindBy(css = "#myTab > li:nth-child(2) > a")
+	private WebElement tabSyllabus;
+	
+	@FindBy(css = "#myTab > li:nth-child(2) > a")
+	private WebElement tabQualification;
+	
+	public void ProfileTabSyllabus() {
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		tabSyllabus.click();	
+	}
+	
+	public void ProfileTabQualification() {
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		tabQualification.click();
+	}
+		
+	
 }

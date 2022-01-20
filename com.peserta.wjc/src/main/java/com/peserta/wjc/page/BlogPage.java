@@ -29,17 +29,17 @@ private WebDriver driver;
 	private WebElement detailBlog;
 	
 	public void menuBlog() {
-		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		blog.get(3).click();
 	}
 	
 	public void clickPageNumb() {
-		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		pageNumb.click();
 	}
 	
 	public void chooseBlog() {
-		driver.manage().timeouts().implicitlyWait(150, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
 		detailBlog.click();
 	}
 	

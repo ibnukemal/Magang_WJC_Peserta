@@ -13,7 +13,6 @@ import com.peserta.wjc.page.BootcampPage;
 import com.peserta.wjc.page.ContactPage;
 import com.peserta.wjc.page.CoursePage;
 import com.peserta.wjc.page.DashboardPage;
-import com.peserta.wjc.page.LearningPage;
 import com.peserta.wjc.page.RegisterPage;
 import com.peserta.wjc.page.SyllabusPage;
 import com.peserta.wjc.config.AutomationFrameworkConfig;
@@ -39,7 +38,6 @@ public class StepDefinition {
 
 	private WebDriver driver;
 	private DashboardPage dashboard;
-	private LearningPage learning;
 	private BootcampPage bootcamp;
 	private SyllabusPage syllabus;
 	private CoursePage course;
@@ -47,6 +45,7 @@ public class StepDefinition {
 	private BlogPage blog;
 	private ContactPage contact;
 	private RegisterPage regist;
+//	private BucketPage bucket;
 	ExtentTest extentTest;
 	static ExtentReports report = new ExtentReports("src/main/resources/TestReport.html");
 	
@@ -58,13 +57,14 @@ public class StepDefinition {
 		DriverSingleton.getInstance(configProperties.getBrowser());
 		dashboard = new DashboardPage();
 		about = new AboutPage();
-		learning = new LearningPage();
+//		learning = new LearningPage();
 	    bootcamp = new BootcampPage();
 	    syllabus = new SyllabusPage();
 	    course = new CoursePage();
 		blog = new BlogPage();
 		contact = new ContactPage();
 		regist = new RegisterPage();
+//		bucket = new BucketPage();
 	    TestCases[] tests = TestCases.values();
 		extentTest = report.startTest(tests[Utils.testcount].getTestName());
 		Utils.testcount++;
@@ -84,41 +84,87 @@ public class StepDefinition {
 		extentTest.log(LogStatus.PASS, "User masukkan email dan tekan subscribe");
 	}
 	
-	//Menu Learning
-	@Then("^User menampilkan list menu Learning")
-	public void User_menampilkan_list_menu_Learning() {
-		learning.learningDropDown();
-		extentTest.log(LogStatus.PASS, "User menampilkan list menu Learning");
+	//Submenu Bootcamp
+	
+	//Dropdown Learning
+	@When("^User click list Learning satu")
+	public void User_click_list_Learning_satu() {
+		bootcamp.learningDropDown();
+		extentTest.log(LogStatus.PASS, "User click list Learning satu");
 	}
 	
-	//Submenu Bootcamp
 	@Then("^User pindah ke halaman Bootcamp")
 	public void User_pindah_ke_halaman_Bootcamp() {
+//		driver = DriverSingleton.getDriver();
+//		driver.get("https://dev.ptdika.com/juaracodingv1/bootcamp");
 		bootcamp.pageBootcamp();
 		extentTest.log(LogStatus.PASS, "User pindah ke halaman Bootcamp");
 	}
 	
 	//Submenu Syllabus
-	@Then("^User pindah ke halaman Syllabus")
+	
+	//Dropdown Learning
+		@When("^User click list Learning dua")
+		public void User_click_list_Learning_dua() {
+			bootcamp.learningDropDown();
+			extentTest.log(LogStatus.PASS, "User click list Learning dua");
+		}
+	
+	@And("^User pindah ke halaman Syllabus")
 	public void User_pindah_ke_halaman_Syllabus() {
 		syllabus.pageSyllabus();
 		extentTest.log(LogStatus.PASS, "User pindah ke halaman Syllabus");
 	}
 	
+	@When("^User click profile tab Syllabus")
+	public void User_click_profile_tab_Syllabus() {
+		syllabus.ProfileTabQualification();
+		extentTest.log(LogStatus.PASS, "User click profile tab Syllabus");
+	}
+	
+	@Then("^User click profile tab Qualfication")
+	public void User_click_profile_tab_Qualfication() {
+		syllabus.ProfileTabQualification();
+		extentTest.log(LogStatus.PASS, "User click profile tab Qualfication");
+	}
+	
+	
 	//Submenu Course
-	@Then("^User pindah ke halaman Course")
+	@When("^User click list Learning tiga")
+	public void User_click_list_Learning_tiga() {
+		bootcamp.learningDropDown();
+		extentTest.log(LogStatus.PASS, "User click list Learning tiga");
+	}
+	
+	
+	@And("^User pindah ke halaman Course")
 	public void User_pindah_ke_halaman_Course() {
 		course.pageCourse();
 		extentTest.log(LogStatus.PASS, "User pindah ke halaman Course");
 	}
 	
+	@And("^User click List Course")
+	public void User_click_List_Course() {
+		course.listCourse();
+		extentTest.log(LogStatus.PASS, "User click List Course");
+	}
+	
+	@And("^User search Course")
+	public void User_search_Course() {
+		course.searchCourses(configProperties.getCourse());
+		extentTest.log(LogStatus.PASS, "User search Course");
+	}
+	
+	@Then("^User click Search")
+	public void User_click_Search() {
+		course.clickSearch();
+		extentTest.log(LogStatus.PASS, "User click Search");
+	}
 	
 	//Menu About
 	@Then("^User pindah ke halaman About")
 	public void User_pindah_ke_halaman_About() {
-		driver = DriverSingleton.getDriver();
-		driver.get("https://dev.ptdika.com/juaracodingv1/about");
-		//about.clickAbout();
+		about.clickAbout();
 		extentTest.log(LogStatus.PASS, "User pindah ke halaman About");
 	}
 	
@@ -171,19 +217,27 @@ public class StepDefinition {
 	
 	@And("^User input formulir")
 	public void User_input_formulir() {
-		regist.formulirPendaftaran(configProperties.getNamadepan(), configProperties.getNamabelakang(), 
-				configProperties.getEmailsiswa(), configProperties.getTanggallahir(), 
-				configProperties.getAlamat(), configProperties.getKota(), configProperties.getKodepos(), 
-				configProperties.getHandphone(), configProperties.getHandphoneKerabat(), configProperties.getMotivasi());
+		regist.formPendaftaran(configProperties.getFirstName(), configProperties.getLastName(), configProperties.getEmailStudents(),
+				configProperties.getDateOfBirth(), configProperties.getAddress(), configProperties.getCity(), 
+				configProperties.getPostCode(), configProperties.getMobilePhone(), configProperties.getRelativesPhone(),
+				configProperties.getMotivation());
 		extentTest.log(LogStatus.PASS, "User input formulir");
 	}
 	
-	@Then("^User click Kirim")
-	public void User_click_Kirim() {
+	@Then("^User kirim formulir")
+	public void User_kirim_formulir() {
 		regist.clickSend();
-		extentTest.log(LogStatus.PASS, "User click Kirim");
+		extentTest.log(LogStatus.PASS, "User kirim formulir");
 	}
-		
+	
+	//Bucket Page
+//	@Then("^User tekan button pay")
+//	public void User_tekan_button_pay() {
+//		bucket.pay();
+//		extentTest.log(LogStatus.PASS, "User tekan button pay");
+//	}
+	
+	
 	@After
 	public void closeObject() {
 		report.endTest(extentTest);

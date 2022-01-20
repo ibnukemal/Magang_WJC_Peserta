@@ -11,12 +11,15 @@ public class ConfigProperties {
 	@Value("${browser}")
 	private String browser;
 	
+	//Email Suscribe
 	@Value("${email}")
 	private String email;
 
-	@Value("${displayabout}")
-	private String displayAbout;
-
+	//
+	@Value("${course}")
+	private String course;
+	
+	//Contact 
 	@Value("${fullname}")
 	private String fullname;
 	
@@ -32,36 +35,38 @@ public class ConfigProperties {
 	@Value("${message}")
 	private String message;
 	
-	@Value("${namadepan}")
-	private String namadepan;
+	//Register Form
+	@Value("${firstName}")
+	private String firstName;
 	
-	@Value("${namabelakang}")
-	private String namabelakang;
+	@Value("${lastName}")
+	private String lastName;
 	
-	@Value("${emailsiswa}")
-	private String emailsiswa;
+	@Value("${emailStudents}")
+	private String emailStudents;
 	
-	@Value("${tanggallahir}")
-	private String tanggallahir;
+	@Value("${dateOfBirth}")
+	private String dateOfBirth;
 	
-	@Value("${alamat}")
-	private String alamat;
+	@Value("${address}")
+	private String address;
 	
-	@Value("${kota}")
-	private String kota;
+	@Value("${city}")
+	private String city;
 	
-	@Value("${kodepos}")
-	private String kodepos;
+	@Value("${postCode}")
+	private String postCode;
 	
-	@Value("${handphone")
-	private String handphone;
+	@Value("${mobilePhone}")
+	private String mobilePhone;
 	
-	@Value("${handphoneKerabat}")
-	private String handphoneKerabat;
+	@Value("${relativesPhone}")
+	private String relativesPhone;
 	
-	@Value("${motivasi}")
-	private String motivasi;
-
+	@Value("${motivation}")
+	private String motivation;
+	
+	///
 	public String getBrowser() {
 		return browser;
 	}
@@ -69,9 +74,9 @@ public class ConfigProperties {
 	public String getEmail() {
 		return email;
 	}
-
-	public String getDisplayAbout() {
-		return displayAbout;
+	
+	public String getCourse() {
+		return course;
 	}
 
 	public String getFullname() {
@@ -94,47 +99,45 @@ public class ConfigProperties {
 		return message;
 	}
 
-	public String getNamadepan() {
-		return namadepan;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getNamabelakang() {
-		return namabelakang;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public String getEmailsiswa() {
-		return emailsiswa;
+	public String getEmailStudents() {
+		return emailStudents;
 	}
 
-	public String getTanggallahir() {
-		return tanggallahir;
+	public String getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public String getAlamat() {
-		return alamat;
+	public String getAddress() {
+		return address;
 	}
 
-	public String getKota() {
-		return kota;
+	public String getCity() {
+		return city;
 	}
 
-	public String getKodepos() {
-		return kodepos;
+	public String getPostCode() {
+		return postCode;
 	}
 
-	public String getHandphone() {
-		return handphone;
+	public String getMobilePhone() {
+		return mobilePhone;
 	}
 
-	public String getHandphoneKerabat() {
-		return handphoneKerabat;
+	public String getRelativesPhone() {
+		return relativesPhone;
 	}
 
-	public String getMotivasi() {
-		return motivasi;
+	public String getMotivation() {
+		return motivation;
 	}
-	
-	
-	
+
 	
 }
