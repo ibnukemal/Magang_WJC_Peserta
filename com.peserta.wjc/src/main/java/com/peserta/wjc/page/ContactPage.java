@@ -23,7 +23,7 @@ public class ContactPage {
 	private List<WebElement> menuContact;
 	
 	public void pageContact() {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		menuContact.get(4).click();
 	}
 	
@@ -43,7 +43,7 @@ public class ContactPage {
 	private WebElement formMessage;
 	
 	public void formContact(String name, String email, String phone, String subject, String message) {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		formFullName.sendKeys(name);
 		formEmail.sendKeys(email);
 		formPhone.sendKeys(phone);
@@ -55,7 +55,7 @@ public class ContactPage {
 	private WebElement btnSend;
 	
 	public void sendMessage() {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		btnSend.click();
 	}
 	

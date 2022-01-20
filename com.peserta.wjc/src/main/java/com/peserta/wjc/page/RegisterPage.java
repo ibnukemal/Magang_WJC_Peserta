@@ -23,7 +23,7 @@ public class RegisterPage {
 	private WebElement btnRegister;
 	
 	public void registerPage() {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		btnRegister.click();
 	}
 	
@@ -114,6 +114,7 @@ public class RegisterPage {
 	private WebElement btnKirim;
 	
 	public void clickSend() {
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		btnKirim.click();
 	}
 	

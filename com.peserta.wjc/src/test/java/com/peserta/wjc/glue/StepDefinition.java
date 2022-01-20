@@ -85,7 +85,6 @@ public class StepDefinition {
 	}
 	
 	//Submenu Bootcamp
-	
 	//Dropdown Learning
 	@When("^User click list Learning satu")
 	public void User_click_list_Learning_satu() {
@@ -95,9 +94,9 @@ public class StepDefinition {
 	
 	@Then("^User pindah ke halaman Bootcamp")
 	public void User_pindah_ke_halaman_Bootcamp() {
-//		driver = DriverSingleton.getDriver();
-//		driver.get("https://dev.ptdika.com/juaracodingv1/bootcamp");
-		bootcamp.pageBootcamp();
+		driver = DriverSingleton.getDriver();
+		driver.get("https://dev.ptdika.com/juaracodingv1/bootcamp");
+//		bootcamp.pageBootcamp();
 		extentTest.log(LogStatus.PASS, "User pindah ke halaman Bootcamp");
 	}
 	

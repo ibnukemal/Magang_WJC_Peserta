@@ -1,5 +1,7 @@
 package com.peserta.wjc.page;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +25,7 @@ public class DashboardPage {
 	private WebElement subscribe;
 	
 	public void sendEmailandSubscribe(String email) {
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		txtEmail.sendKeys(email);
 		subscribe.click();
 	}

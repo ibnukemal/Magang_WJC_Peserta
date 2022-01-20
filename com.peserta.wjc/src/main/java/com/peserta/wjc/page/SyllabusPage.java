@@ -32,7 +32,7 @@ public class SyllabusPage {
 	private WebElement menuSyllabus;
 	
 	public void pageSyllabus() {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		menuSyllabus.click();
 	}
 	
@@ -43,12 +43,12 @@ public class SyllabusPage {
 	private WebElement tabQualification;
 	
 	public void ProfileTabSyllabus() {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		tabSyllabus.click();	
 	}
 	
 	public void ProfileTabQualification() {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		tabQualification.click();
 	}
 		

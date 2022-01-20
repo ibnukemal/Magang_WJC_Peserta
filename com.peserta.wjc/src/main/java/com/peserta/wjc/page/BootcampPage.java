@@ -20,7 +20,7 @@ public class BootcampPage {
 	}
 
 	//Dropdown Menu Learning
-		@FindBy(css = "#navbarsMenu > ul > li.nav-item.dropdown")
+		@FindBy(css = "#navbarsMenu > ul > li.nav-item.dropdown > a ")
 		private WebElement menuLearning;
 		
 		public void learningDropDown() {
@@ -32,7 +32,7 @@ public class BootcampPage {
 	private WebElement menuBootcamp;
 
 	public void pageBootcamp() {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 		menuBootcamp.click();
 	}
 }
