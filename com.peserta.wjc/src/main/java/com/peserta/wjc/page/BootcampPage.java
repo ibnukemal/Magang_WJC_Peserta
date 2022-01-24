@@ -32,7 +32,7 @@ public class BootcampPage {
 	private WebElement menuBootcamp;
 
 	public void pageBootcamp() {
-		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
 		menuBootcamp.click();
 	}
 }

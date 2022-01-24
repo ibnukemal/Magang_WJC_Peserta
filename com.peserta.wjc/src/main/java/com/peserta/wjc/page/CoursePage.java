@@ -32,7 +32,7 @@ public class CoursePage {
 	private WebElement menuCourse;
 	
 	public void pageCourse() {
-		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
 		menuCourse.click();
 	}
 	
@@ -40,7 +40,7 @@ public class CoursePage {
 	private WebElement lstCourse;
 	
 	public void listCourse() {
-		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
 		lstCourse.click();
 	}
 
@@ -48,7 +48,7 @@ public class CoursePage {
 	private WebElement txtSearch;
 	
 	public void searchCourses(String course) {
-		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
 		txtSearch.sendKeys(course);
 	}
 	
@@ -56,7 +56,7 @@ public class CoursePage {
 	private WebElement btnSearch;
 	
 	public void clickSearch() {
-		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
 		btnSearch.click();
 	}
 	

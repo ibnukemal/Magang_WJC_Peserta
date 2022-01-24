@@ -25,7 +25,7 @@ public class AboutPage {
 	private List<WebElement> about;
 	
 	public void clickAbout() {
-		driver.manage().timeouts().implicitlyWait(7000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
 		about.get(2).click();
 	}
 	

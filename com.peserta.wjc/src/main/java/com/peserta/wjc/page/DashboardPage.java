@@ -25,7 +25,7 @@ public class DashboardPage {
 	private WebElement subscribe;
 	
 	public void sendEmailandSubscribe(String email) {
-		driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.SECONDS);
 		txtEmail.sendKeys(email);
 		subscribe.click();
 	}
